@@ -1,0 +1,21 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+                "settings": {},
+                "extensions": [                                                         "streetsidesoftware.code-spell-checker"
+                ]
+         }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+                "version": "latest"
+        }
+    },
+    "onCreateCommand": "/on-create.sh"
+}
