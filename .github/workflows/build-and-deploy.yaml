@@ -33,4 +33,4 @@ jobs:
         with:
           context: ${{ github.workspace }}/.devcontainer
           push: true
-          tags: ghcr.io/PFNASS/python-devcontainer:latest
+          tags: ghcr.io/pfnass/python-devcontainer:latest
