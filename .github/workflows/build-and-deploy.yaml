@@ -23,9 +23,9 @@ jobs:
       - name: Build and Push to ghcr.io
         working-directory: .devcontainer
         run: |
-          docker buildx build -t pfnass/${{ inputs.imageType }}-devcontainer:latest .
-          docker tag pfnass/${{ inputs.imageType }}-devcontainer:latest ghcr.io/pfnass/${{ inputs.imageType }}-devcontainer:latest
-          docker push ghcr.io/pfnass/${{ inputs.imageType }}-devcontainer:latest
+          docker buildx build -t pfnass/python-devcontainer:latest .
+          docker tag pfnass/python-devcontainer:latest ghcr.io/pfnass/python-devcontainer:latest
+          docker push ghcr.io/pfnass/python-devcontainer:latest
 
       # - name: Set up Docker Buildx
       #   uses: docker/setup-buildx-action@v3
