@@ -18,7 +18,7 @@ jobs:
         with:
           registry: ghcr.io
           username: phillipsja97
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.TOKEN }}
 
       - name: Build and Push to ghcr.io
         working-directory: .devcontainer
