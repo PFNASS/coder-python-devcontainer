@@ -20,7 +20,14 @@ jobs:
           username: phillipsja97
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Push to ghcr.io
-        run: |
-          docker build -f Dockerfile -t phillipsja97/${{ inputs.imageType }}-devcontainer:latest .
-          docker push ghcr.io//phillipsja97/${{ inputs.imageType }}-devcontainer:latest
+    #   - name: Build and Push to ghcr.io
+    #     run: |
+    #       docker build -t phillipsja97/${{ inputs.imageType }}-devcontainer:latest
+    #       docker push ghcr.io//phillipsja97/${{ inputs.imageType }}-devcontainer:latest
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ github.workspace }}/.devcontainer/Dockerfile
+          push: true
+          tags: user/app:latest
