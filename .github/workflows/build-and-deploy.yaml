@@ -20,17 +20,18 @@ jobs:
           username: phillipsja97
           password: ${{ secrets.GITHUB_TOKEN }}
 
-    #   - name: Build and Push to ghcr.io
-    #     run: |
-    #       docker build -t phillipsja97/${{ inputs.imageType }}-devcontainer:latest
-    #       docker push ghcr.io//phillipsja97/${{ inputs.imageType }}-devcontainer:latest
+      - name: Build and Push to ghcr.io
+        run: |
+          docker build -t pfnass/${{ inputs.imageType }}-devcontainer:latest
+          docker tag pfnass/${{ inputs.imageType }}-devcontainer:latest ghcr.io//pfnass/${{ inputs.imageType }}-devcontainer:latest
+          docker push ghcr.io//pfnass/${{ inputs.imageType }}-devcontainer:latest
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
 
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: ${{ github.workspace }}/.devcontainer
-          push: true
-          tags: ghcr.io/pfnass/python-devcontainer:latest
+      # - name: Build and push
+      #   uses: docker/build-push-action@v6
+      #   with:
+      #     context: ${{ github.workspace }}/.devcontainer
+      #     push: true
+      #     tags: ghcr.io/pfnass/python-devcontainer:latest
