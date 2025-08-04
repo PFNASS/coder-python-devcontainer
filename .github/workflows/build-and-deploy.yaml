@@ -21,8 +21,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push to ghcr.io
+        working-directory: .devcontainer
         run: |
-          docker build -t pfnass/${{ inputs.imageType }}-devcontainer:latest
+          docker buildx build -t pfnass/${{ inputs.imageType }}-devcontainer:latest .
           docker tag pfnass/${{ inputs.imageType }}-devcontainer:latest ghcr.io//pfnass/${{ inputs.imageType }}-devcontainer:latest
           docker push ghcr.io//pfnass/${{ inputs.imageType }}-devcontainer:latest
 
