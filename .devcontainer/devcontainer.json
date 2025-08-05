@@ -1,7 +1,5 @@
 {
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "image": "ghcr.io/pfnass/python-devcontainer:latest",
     "customizations": {
         "vscode": {
                 "settings": {},
