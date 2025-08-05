@@ -6,7 +6,16 @@
         "vscode": {
                 "settings": {},
                 "extensions": [
-			"streetsidesoftware.code-spell-checker"
+			        "streetsidesoftware.code-spell-checker",
+                    "ms-python.python",
+                    "ms-python.debugpy",
+                    "KevinRose.vsc-python-indent",
+                    "donjayamanne.python-extension-pack",
+                    "danields761.dracula-theme-from-intellij-pythoned",
+                    "redhat.vscode-yaml",
+                    "esbenp.prettier-vscode",
+                    "MagnoNMatos.crewai-snippets",
+                    "WilliamSimmonds.crewai-lint"
                 ]
          }
     },
@@ -23,5 +32,5 @@
         }
     },
     "onCreateCommand": "/on-create.sh",
-    "postCreateCommand": "pip3 install pyyaml crewai"
+    "postCreateCommand": "pip3 install pyyaml crewai && crewai create crew testCrew && cd testCrew"
 }
