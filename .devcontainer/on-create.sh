@@ -17,6 +17,3 @@ for attempt in $(seq 1 10); do
     break
   fi
 done
-
-# Change the owner of the Docker socket so that the non-root user can use it.
-sudo chown coder:docker /var/run/docker.sock
