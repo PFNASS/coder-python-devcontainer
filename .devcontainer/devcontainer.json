@@ -4,21 +4,25 @@
     },
     "customizations": {
         "vscode": {
-                "settings": {},
-                "extensions": [
-			        "streetsidesoftware.code-spell-checker",
-                    "ms-python.python",
-                    "ms-python.debugpy",
-                    "KevinRose.vsc-python-indent",
-                    "donjayamanne.python-extension-pack",
-                    "danields761.dracula-theme-from-intellij-pythoned",
-                    "redhat.vscode-yaml",
-                    "esbenp.prettier-vscode",
-                    "MagnoNMatos.crewai-snippets",
-                    "WilliamSimmonds.crewai-lint"
-                ]
-         }
+            "settings": {},
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "KevinRose.vsc-python-indent",
+                "donjayamanne.python-extension-pack",
+                "danields761.dracula-theme-from-intellij-pythoned",
+                "redhat.vscode-yaml",
+                "esbenp.prettier-vscode",
+                "MagnoNMatos.crewai-snippets",
+                "WilliamSimmonds.crewai-lint",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
     },
+    "mounts": [
+        "source=${localWorkspaceFolder}/.devcontainer/scripts,target=/workspaces/coder-python-devcontainer/scripts,type=bind"
+    ],
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:1": {
             "version": "latest",
@@ -31,6 +35,8 @@
             "version": "latest"
         }
     },
-    "onCreateCommand": "/on-create.sh",
-    "postCreateCommand": "pip3 install pyyaml crewai && crewai create crew testCrew && cd testCrew"
+    "remoteUser": "coder",
+    "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
+    "onCreateCommand": "bash scripts/on-create.sh",
+    "postCreateCommand": "bash scripts/post-create.sh"
 }

@@ -14,10 +14,6 @@ RUN useradd -m -s /bin/bash -G docker coder && \
     echo "coder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/coder && \
     chown -R coder:coder /home/coder
 
-
-# Add our onCreateCommand script.
-ADD on-create.sh /on-create.sh
-RUN chmod 755 /on-create.sh
 USER coder
 
 ENTRYPOINT ["bash"]
